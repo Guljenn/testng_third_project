@@ -73,36 +73,21 @@ public class CarvanaTest extends Base {
         Waiter.pause(2);
         Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
 
-        for (WebElement element : carvanaMercedesSearchPage.imageSearchResults) {
-            Assert.assertTrue(element.isDisplayed());
-        }
-
-        for (WebElement element : carvanaMercedesSearchPage.favoriteButtonResults) {
-            Assert.assertTrue(element.isDisplayed());
-
-        }
-
-        for (WebElement element : carvanaMercedesSearchPage.tileBodyResults) {
-            Assert.assertTrue(element.isDisplayed());
-
-        }
 
 
         for (int i = 0; i < carvanaMercedesSearchPage.resultTile.size(); i++) {
             Assert.assertTrue(carvanaMercedesSearchPage.resultTile.get(i).isDisplayed());
-            Assert.assertTrue(carvanaMercedesSearchPage.inventoryTypes.get(i).isDisplayed() && !carvanaMercedesSearchPage.inventoryTypes.isEmpty());
-            if (carvanaMercedesSearchPage.inventoryTypes.get(i).getAttribute("data-test") != null) {
-                Assert.assertTrue(carvanaMercedesSearchPage.yearAndMakeInfo.get(i).isDisplayed());
-                if (carvanaMercedesSearchPage.trimMileageInfo.get(i).getAttribute("class") != null)
-                    Assert.assertTrue(carvanaMercedesSearchPage.trimMileageInfo.get(i).isDisplayed());
-                Assert.assertTrue(Integer.parseInt(carvanaMercedesSearchPage.priceInfo.get(i).getText().replace("$", "").replace(",", "")) > 0);
-                if (carvanaMercedesSearchPage.monthlyPaymentInfo.get(i).getAttribute("class") != null)
-                    Assert.assertTrue(carvanaMercedesSearchPage.monthlyPaymentInfo.get(i).isDisplayed());
-                if (carvanaMercedesSearchPage.downPaymentInfo.get(i).getAttribute("class") != null)
-                    Assert.assertTrue(carvanaMercedesSearchPage.downPaymentInfo.get(i).isDisplayed());
-                Assert.assertTrue(carvanaMercedesSearchPage.freeDeliveryResults.get(i).getText().contains("Free Shipping"));
+            Assert.assertTrue(carvanaMercedesSearchPage.imageSearchResults.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.favoriteButtonResults.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.tileBodyResults.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.inventoryTypes.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.yearAndMakeInfo.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.trimMileageInfo.get(i).isDisplayed());
+            Assert.assertTrue(Integer.parseInt(carvanaMercedesSearchPage.priceInfo.get(i).getText().replace("$", "").replace(",", "")) > 0);
+            Assert.assertTrue(carvanaMercedesSearchPage.monthlyPaymentInfo.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.downPaymentInfo.get(i).isDisplayed());
+            Assert.assertTrue(carvanaMercedesSearchPage.freeDeliveryResults.get(i).getText().contains("Free Shipping"));
 
             }
         }
     }
-}
